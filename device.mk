@@ -25,11 +25,11 @@ PRODUCT_PACKAGES += \
 
 # OTA certs
 PRODUCT_EXTRA_RECOVERY_KEYS += \
-	$(DEVICE_PATH)/security/local_OTA \
-	$(DEVICE_PATH)/security/special_OTA
+	$(LOCAL_PATH)/security/local_OTA \
+	$(LOCAL_PATH)/security/special_OTA
 
 # Soong namespaces
-PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
 # some OrangeFox-specific settings
 $(call inherit-product, $(LOCAL_PATH)/fox_waffle.mk)
