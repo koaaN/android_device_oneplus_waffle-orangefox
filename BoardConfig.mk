@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+DEVICE_PATH := device/oneplus/waffle
+
 # Building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES                      := true
 BUILD_BROKEN_DUP_RULES                          := true
@@ -67,10 +69,6 @@ RECOVERY_BINARY_SOURCE_FILES    += $(TARGET_OUT_EXECUTABLES)/strace
 # File systems
 TARGET_USERIMAGES_USE_F2FS := true
 TW_USE_DMCTL               := true
-
-# Init
-TARGET_INIT_VENDOR_LIB          := //$(DEVICE_PATH):libinit_oplus_sm86xx
-TARGET_RECOVERY_DEVICE_MODULES  := libinit_oplus_sm86xx
 
 # Kernel
 BOARD_KERNEL_IMAGE_NAME     := Image
@@ -148,7 +146,8 @@ TW_CUSTOM_CPU_TEMP_PATH                 := "/sys/class/thermal/thermal_zone48/te
 TW_EXCLUDE_APEX                         := true
 TW_EXCLUDE_DEFAULT_USB_INIT             := true
 TW_EXTRA_LANGUAGES                      := true
-TW_LOAD_VENDOR_MODULES                  := "adsp_loader_dlkm.ko goodix_core.ko oplus_chg_v2.ko stm_st54se_gpio.ko nxp-nci.ko cnss_prealloc.ko cnss_nl.ko wlan_firmware_service.ko cnss_plat_ipc_qmi_svc.ko cnss_utils.ko cnss2.ko gsim.ko rmnet_mem.ko ipam.ko rfkill.ko cfg80211.ko"
+TW_LOAD_VENDOR_MODULES                  := "adsp_loader_dlkm.ko goodix_core.ko oplus_chg_v2.ko stm_st54se_gpio.ko nxp-nci.ko cnss_prealloc.ko cnss_nl.ko wlan_firmware_service.ko cnss_plat_ipc_qmi_svc.ko cnss_utils.ko cnss2.ko"
+TW_POST_DECRYPT_MODULES := "rfkill.ko cfg80211.ko gsim.ko rmnet_mem.ko ipam.ko qca_cld3_kiwi_v2.ko"
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI      := true
 TW_NO_SCREEN_BLANK                      := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID  := true
